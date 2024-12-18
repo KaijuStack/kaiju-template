@@ -22,10 +22,9 @@
 This project is inspired by the [T3 Stack](https://github.com/t3-oss/create-t3-app) but focuses on a different use case: making it easy to build and deploy single-page applications (SPAs) without the overhead of Next.js or server components.
 
 If your app doesn’t need SSR, using a plain React setup with Vite and deploying it via CDN can be much simpler and cheaper. This starter provides a clean foundation for that kind of workflow.
+And if you ever need SSR in the future, you can switch to Next.js or set it up with Vite when the time comes.
 
-It’s designed to give you the best development experience possible while keeping things lightweight and flexible. And if you ever need SSR in the future, you can switch to Next.js or set it up with Vite when the time comes.
-
-This project is about simplicity, flexibility, and getting things done without unnecessary complexity.
+It’s a reasonably opinionated boilerplate where every tool is carefully chosen to provide the best DX and TypeScript support, and getting things done without unnecessary complexity. While it provides a solid starting point, every piece is easily replaceable — you can swap Mantine for shadcn/ui, DrizzleORM for Kysely or Prisma, Hono RPC to tRPC and more, tailoring the stack to fit your preferences and needs.
 
 ## Components
 TBD
