@@ -1,0 +1,20 @@
+{
+  "name": "kaigen-template",
+  "private": true,
+  "scripts": {
+    "dev": "turbo dev",
+    "infra": "docker compose  -f infra/docker-compose.yml up --build",
+    "prepare": "husky",
+    "precommit": "turbo run precommit --concurrency=1"
+  },
+  "devDependencies": {
+    "husky": "9.1.7",
+    "prettier": "3.4.2",
+    "turbo": "2.3.0",
+    "typescript": "5.5.4"
+  },
+  "packageManager": "pnpm@9.1.15",
+  "engines": {
+    "node": ">=20.13.1"
+  }
+}

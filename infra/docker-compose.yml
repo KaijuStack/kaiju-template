@@ -1,0 +1,35 @@
+version: '3.6'
+services:
+  redis:
+    container_name: kaigen-redis
+    image: docker.io/bitnami/redis-cluster:7.0.8
+    environment:
+      - 'ALLOW_EMPTY_PASSWORD=yes'
+      - 'REDIS_CLUSTER_REPLICAS=0'
+      - 'REDIS_NODES=127.0.0.1 127.0.0.1 127.0.0.1'
+      - 'REDIS_CLUSTER_CREATOR=yes'
+      - 'REDIS_CLUSTER_DYNAMIC_IPS=no'
+      - 'REDIS_CLUSTER_ANNOUNCE_IP=127.0.0.1'
+    networks:
+      - kaigen
+    ports:
+      - '6379:6379'
+  postgres:
+    container_name: kaigen-postgres
+    build:
+      context: .
+      dockerfile: Dockerfile.postgres
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+    networks:
+      - kaigen
+    ports:
+      - '5432:5432'
+    # increase the shared memory for postgres (default is 64m)
+    # see: https://www.instaclustr.com/blog/postgresql-docker-and-shared-memory
+    shm_size: 256m
+
+networks:
+  kaigen:
+    name: kaigen-network
