@@ -17,8 +17,12 @@
  Get started with the template by clicking <code>Use this template</code> button on the top of the page.
 </p>
 
-
 ## A Modern SPA Starter
+
+> 🚧 **Work in Progress**
+>
+> Kaiju is currently in active development.
+
 This project is inspired by the [T3 Stack](https://github.com/t3-oss/create-t3-app) but focuses on a different use case: making it easy to build and deploy single-page applications (SPAs) without the overhead of Next.js or server components, while keeping the backend as a separate application.
 
 If your app doesn’t need SSR, using a plain React setup with Vite and deploying it via CDN can be much simpler and cheaper. This starter provides a clean foundation for that kind of workflow.
