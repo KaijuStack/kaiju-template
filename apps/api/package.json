@@ -11,26 +11,27 @@
   },
   "scripts": {
     "dev": "tsx watch src/index.ts",
-    "build": "tsc -p tsconfig.build.json"
+    "build": "tsc"
   },
   "dependencies": {
-    "@hono/node-server": "1.13.7",
-    "hono": "4.6.14"
+    "@hono/node-server": "1.14.1",
+    "hono": "4.7.9"
   },
   "devDependencies": {
-    "eslint": "9.17.0",
+    "@repo/typescript-config": "workspace:*",
+    "@repo/eslint-config": "workspace:*",
     "tsx": "4.19.2",
-    "typescript": "5.7.2",
+    "typescript": "5.8.3",
     "lint-staged": "15.2.7"
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
+    "*.ts": [
       "eslint --fix",
       "bash -c 'tsc --noEmit'",
-      "prettier --write"
+      "prettier . --ignore-path ../../.gitignore --write --log-level silent"
     ],
     "*.{md,json}": [
-      "prettier --write"
+      "prettier . --ignore-path ../../.gitignore --write --log-level silent"
     ]
   }
 }
