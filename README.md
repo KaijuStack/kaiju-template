@@ -47,9 +47,10 @@ It’s a reasonably opinionated boilerplate where every tool is carefully chosen
 
 ### Other
 
-- ESLint, Prettier, husky
 - TypeScript
 - Zod
+- i18n
+- ESLint, Prettier, husky
 - Turborepo
 - Docker
 - Digital Ocean
