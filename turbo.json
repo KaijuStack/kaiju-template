@@ -5,7 +5,15 @@
       "cache": false,
       "persistent": true
     },
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**"],
+      "outputLogs": "new-only"
+    },
     "precommit": {
+      "outputs": []
+    },
+    "lint": {
       "outputs": []
     }
   }

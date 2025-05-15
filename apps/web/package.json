@@ -1,14 +1,17 @@
 {
-  "name": "web",
+  "name": "@repo/web",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "precommit": "lint-staged",
+    "lint": "eslint --fix && tsc --noEmit -p tsconfig.json && prettier . --ignore-path ../../.gitignore --write --log-level silent"
   },
   "dependencies": {
+    "@repo/api": "workspace:*",
     "@mantine/core": "8.0.1",
     "@mantine/hooks": "8.0.1",
     "react": "19.1.0",
@@ -20,10 +23,21 @@
     "@types/react": "19.1.3",
     "@types/react-dom": "19.1.3",
     "@vitejs/plugin-react": "4.4.1",
+    "lint-staged": "15.2.7",
     "postcss": "8.5.3",
     "postcss-preset-mantine": "1.17.0",
     "postcss-simple-vars": "7.0.1",
     "typescript": "5.8.3",
     "vite": "6.3.5"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "bash -c 'tsc --noEmit -p tsconfig.json'",
+      "prettier . --ignore-path ../../.gitignore --write --log-level silent"
+    ],
+    "*.{md,json}": [
+      "prettier . --ignore-path ../../.gitignore --write --log-level silent"
+    ]
   }
 }

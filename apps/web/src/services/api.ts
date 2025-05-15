@@ -1,4 +1,4 @@
-import { hcWithType } from '@repo/api/app';
+import { hcWithType } from '@repo/api/hc';
 
 const client = hcWithType('http://localhost:8787');
 
