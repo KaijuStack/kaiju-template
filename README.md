@@ -27,7 +27,7 @@ This project is inspired by the [T3 Stack](https://github.com/t3-oss/create-t3-a
 
 If your app doesn’t need SSR, using a plain React setup with Vite and deploying it via CDN can be much simpler and cheaper. This starter provides a clean foundation for that kind of workflow.
 
-It’s a reasonably opinionated boilerplate where every tool is carefully chosen to provide the best DX and TypeScript support. At the same time every piece is easily replaceable — you can swap Mantine for shadcn/ui, DrizzleORM for Kysely or Prisma, Hono for tRPC/Express/Nest and more, tailoring the stack to fit your preferences and needs.
+It’s a reasonably opinionated minimalistic boilerplate where every tool is carefully chosen to provide the best DX and TypeScript support. At the same time every piece is easily replaceable — you can swap Mantine for shadcn/ui, Drizzle for Kysely or Prisma, Hono for tRPC/Express/Nest and more, tailoring the stack to fit your preferences and needs.
 
 ## Components
 

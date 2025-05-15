@@ -1,0 +1,98 @@
+.navbar {
+  height: 100%;
+  width: 300px;
+  padding: var(--mantine-spacing-md);
+  display: flex;
+  flex-direction: column;
+  background-color: var(--mantine-color-blue-filled);
+}
+
+.navbarMain {
+  flex: 1;
+}
+
+.header {
+  padding-bottom: var(--mantine-spacing-md);
+  margin-bottom: var(--mantine-spacing-lg);
+  border-bottom: 1px solid var(--mantine-color-blue-7);
+  align-items: center;
+  gap: var(--mantine-spacing-xs);
+}
+
+.headerIcon {
+  width: 38px;
+  height: 38px;
+  color: var(--mantine-color-white);
+}
+
+.headerTitle {
+  font-size: var(--mantine-font-size-lg);
+  font-weight: 700;
+  color: var(--mantine-color-white);
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: var(--mantine-font-size-sm);
+  color: var(--mantine-color-white);
+  padding: var(--mantine-spacing-xs) var(--mantine-spacing-sm);
+  border-radius: var(--mantine-radius-sm);
+  font-weight: 500;
+
+  @mixin hover {
+    background-color: var(--mantine-color-blue-7);
+    color: var(--mantine-color-white);
+
+    .linkIcon {
+      color: var(--mantine-color-white);
+    }
+  }
+}
+
+.linkActive {
+  box-shadow: var(--mantine-shadow-sm);
+  background-color: var(--mantine-color-white);
+  color: var(--mantine-color-blue-filled);
+
+  .linkIcon {
+    color: var(--mantine-color-blue-filled);
+  }
+
+  @mixin hover {
+    background-color: var(--mantine-color-white);
+    color: var(--mantine-color-blue-filled);
+
+    .linkIcon {
+      color: var(--mantine-color-blue-filled);
+    }
+  }
+}
+
+.linkIcon {
+  color: var(--mantine-color-blue-1);
+  margin-right: var(--mantine-spacing-sm);
+  stroke-width: 1.5;
+  width: 25px;
+  height: 25px;
+}
+
+.linkLabel {
+  font-size: var(--mantine-font-size-sm);
+  font-weight: 500;
+}
+
+.footer {
+  padding-top: var(--mantine-spacing-md);
+  margin-top: var(--mantine-spacing-md);
+  border-top: 1px solid var(--mantine-color-blue-7);
+}
+
+.main {
+  flex: 1;
+  height: 100%;
+  overflow-y: auto;
+  padding: var(--mantine-spacing-md);
+  background-color: var(--mantine-color-gray-1);
+}
