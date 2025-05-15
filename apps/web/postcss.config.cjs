@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 module.exports = {
   plugins: {
     'postcss-preset-mantine': {},
