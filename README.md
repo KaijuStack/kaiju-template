@@ -50,6 +50,7 @@ It’s a reasonably opinionated boilerplate where every tool is carefully chosen
 - ESLint, Prettier, husky
 - TypeScript
 - Zod
+- Turborepo
 - Docker
 - Digital Ocean
 - GitHub Actions
