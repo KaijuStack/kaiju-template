@@ -13,8 +13,9 @@
     }
   },
   "scripts": {
-    "dev": "tsc  --watch",
-    "build": "tsc",
+    "dev": "pnpm --filter @repo/api --parallel \"/^dev:.*/\"",
+    "dev:types": "tsc --watch",
+    "dev:app": "tsx watch src/index.ts",
     "precommit": "lint-staged",
     "lint": "eslint --fix && tsc --noEmit && prettier . --ignore-path ../../.gitignore --write --log-level silent"
   },
@@ -23,10 +24,11 @@
     "hono": "4.7.9"
   },
   "devDependencies": {
-    "@repo/typescript-config": "workspace:*",
     "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "lint-staged": "15.2.7",
     "typescript": "5.8.3",
-    "lint-staged": "15.2.7"
+    "tsx": "4.19.4"
   },
   "lint-staged": {
     "*.ts": [
