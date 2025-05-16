@@ -57,7 +57,12 @@ export function Table({
           h={400}
           w="100%"
         >
-          <Text size="sm">{`No ${title.toLowerCase()} found`}</Text>
+          <Title
+            order={5}
+            c="gray"
+          >
+            {`No ${title.toLowerCase()} found`}
+          </Title>
         </Center>
       )}
     </Stack>
