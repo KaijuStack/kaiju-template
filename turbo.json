@@ -10,6 +10,9 @@
       "outputs": ["dist/**"],
       "outputLogs": "new-only"
     },
+    "api#build": {
+      "dependsOn": ["schemas#build"]
+    },
     "migrate": {
       "cache": false
     },

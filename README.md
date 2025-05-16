@@ -57,7 +57,27 @@ It’s a reasonably opinionated minimalistic boilerplate where every tool is car
 - GitHub Actions
 - Sentry
 
-## Getting Started
+## Requirements
+
+This application uses [Turborepo](https://turbo.build/) and [pnpm](https://pnpm.io/) for monorepo configuration, [docker-compose](https://docs.docker.com/compose/) for running infrastructure (PostgreSQL, Redis, etc).
+Install the next tools before starting:
+
+- [Node.js](https://nodejs.org/)
+- [pnpm](https://pnpm.io/) &rarr; `npm i -g pnpm@latest-10`
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+- [Turborepo](https://turbo.build/repo/) &rarr; `pnpm i turbo --global`
+
+## Run application
+
+`pnpm infra`. Wait until the whole infrastructure starts and follow the next step.
+
+`pnpm i`. Install dependencies.
+
+`pnpm migrate`. Run migrations.
+
+`pnpm dev`. Run the application.
+
+Application will be accesible on [http://localhost:5173/](http://localhost:5173/)
 
 TBD
 
