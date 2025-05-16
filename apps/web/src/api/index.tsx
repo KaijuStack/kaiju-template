@@ -1,1 +1,3 @@
-export * from './file.api';
+import * as filesApi from './file.api';
+
+export { filesApi };

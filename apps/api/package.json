@@ -15,7 +15,7 @@
   "scripts": {
     "generate": "drizzle-kit generate",
     "migrate": "drizzle-kit migrate",
-    "build": "tsc",
+    "build": "tsc -p build.tsconfig.json",
     "dev": "tsx watch src/index.ts",
     "precommit": "lint-staged",
     "lint": "eslint --fix && tsc --noEmit && prettier . --ignore-path ../../.gitignore --write --log-level silent"

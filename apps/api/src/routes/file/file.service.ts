@@ -5,7 +5,7 @@ import { file, fileBase } from 'db';
 import { db } from 'services';
 import { formatPagination } from 'utils';
 
-export const createFile = async ({ data }: { data: CreateFileDto }) => {
+const createFile = async ({ data }: { data: CreateFileDto }) => {
   const [existingFile] = await db
     .select()
     .from(fileBase)
@@ -18,7 +18,7 @@ export const createFile = async ({ data }: { data: CreateFileDto }) => {
   return db.insert(fileBase).values(data);
 };
 
-export const getFile = async ({ id }: { id: string }) => {
+const getFile = async ({ id }: { id: string }) => {
   const [fileRow] = await db
     .select({
       id: file.id,
@@ -35,8 +35,8 @@ export const getFile = async ({ id }: { id: string }) => {
   return fileRow;
 };
 
-export const getFiles = async ({ params }: { params: GetFilesDto }) => {
-  const { limit, offset } = formatPagination(params.page, params.limit);
+const getFiles = async ({ data }: { data: GetFilesDto }) => {
+  const { limit, offset } = formatPagination(data.page, data.limit);
 
   const [filesRows, [total]] = await Promise.all([
     db
@@ -59,4 +59,10 @@ export const getFiles = async ({ params }: { params: GetFilesDto }) => {
     results: filesRows,
     count: total?.count ?? 0,
   };
+};
+
+export default {
+  createFile,
+  getFile,
+  getFiles,
 };

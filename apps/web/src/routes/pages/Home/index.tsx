@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router';
-import { Text } from '@mantine/core';
+import { Text, Loader, Center } from '@mantine/core';
 
-import { Table } from '../../../components';
+import { Table } from 'components';
+import { filesApi } from 'api';
 
 const data = [
   {
@@ -55,13 +56,25 @@ const tableData = {
 export function FilesPage() {
   const [page, setPage] = useState(1);
 
+  const { data: files, isLoading } = filesApi.useList({
+    page,
+    limit: 10,
+  });
+
+  if (isLoading) {
+    return (
+      <Center h="100vh">
+        <Loader />
+      </Center>
+    );
+  }
+
   return (
     <Table
       title="Files"
       page={page}
       onPageChange={setPage}
-      perPage={10}
-      count={data.length}
+      count={files?.count || 0}
       data={tableData}
     />
   );

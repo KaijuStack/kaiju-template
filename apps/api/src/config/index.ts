@@ -2,7 +2,7 @@ export const isDev = process.env.APP_ENV === 'development';
 
 export const corsDevConfig = {
   credentials: true,
-  origin: /.*/,
+  origin: 'http://localhost:5173',
 };
 
 export const postgresConfig = {
