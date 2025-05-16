@@ -13,6 +13,8 @@
     }
   },
   "scripts": {
+    "generate": "drizzle-kit generate",
+    "migrate": "drizzle-kit migrate",
     "build": "tsc",
     "dev": "tsx watch src/index.ts",
     "precommit": "lint-staged",
@@ -21,12 +23,18 @@
   "dependencies": {
     "@hono/node-server": "1.14.1",
     "@hono/zod-validator": "0.5.0",
-    "hono": "4.7.9"
+    "dotenv": "16.5.0",
+    "drizzle-orm": "0.43.1",
+    "hono": "4.7.9",
+    "pg": "8.16.0"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/schemas": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "@types/node": "22.15.18",
+    "@types/pg": "8.15.2",
+    "drizzle-kit": "0.31.1",
     "lint-staged": "15.2.7",
     "tsx": "4.19.4",
     "typescript": "5.8.3"

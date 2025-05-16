@@ -17,7 +17,7 @@ const Navbar = () => {
         <Box className={classes.navbarMain}>
           <Group className={classes.header}>
             <IconBrandFinder className={classes.headerIcon} />
-            <Text className={classes.headerTitle}>Documents Parser</Text>
+            <Text className={classes.headerTitle}>Parser</Text>
           </Group>
           {links.map((link) => (
             <NavBarButton

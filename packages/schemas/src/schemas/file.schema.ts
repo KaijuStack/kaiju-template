@@ -6,6 +6,18 @@ export const createFileSchema = z.object({
   name: validationField.string({ isRequired: true, max: 20 }),
 });
 
-export const updateFileSchema = z.object({
-  name: validationField.string({ max: 20 }),
+export type CreateFileDto = z.infer<typeof createFileSchema>;
+
+export const getFilesSchema = z.object({
+  page: validationField.number({
+    isRequired: true,
+    min: 1,
+  }),
+  limit: validationField.number({
+    isRequired: true,
+    min: 1,
+    max: 100,
+  }),
 });
+
+export type GetFilesDto = z.infer<typeof getFilesSchema>;

@@ -1,5 +1,9 @@
 import { hcWithType } from '@repo/api/hc';
 
-const client = hcWithType('http://localhost:8787');
+const apiService = hcWithType('http://localhost:3000/api', {
+  init: {
+    credentials: 'include',
+  },
+});
 
-console.log(client);
+export default apiService;

@@ -6,6 +6,7 @@
     "watch": "turbo watch build --filter=./packages/* --filter=@repo/api",
     "dev": "pnpm build && (turbo dev & pnpm watch)",
     "infra": "docker compose  -f infra/docker-compose.yml up --build",
+    "migrate": "turbo run migrate --filter=@repo/api",
     "prepare": "husky",
     "precommit": "turbo run precommit --concurrency=1"
   },

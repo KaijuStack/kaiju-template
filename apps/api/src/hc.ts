@@ -1,6 +1,6 @@
 import { hc } from 'hono/client';
 
-import { AppType } from './app';
+import { AppType } from './routes';
 
 export type Client = ReturnType<typeof hc<AppType>>;
 

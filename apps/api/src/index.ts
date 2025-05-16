@@ -1,6 +1,7 @@
+import 'dotenv/config';
 import { serve } from '@hono/node-server';
 
-import app from './app';
+import app from './routes';
 
 const port = 3000;
 
