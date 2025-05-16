@@ -51,6 +51,7 @@ It’s a reasonably opinionated minimalistic boilerplate where every tool is car
 - Zod
 - i18n
 - ESLint, Prettier, husky
+- pnpm
 - Turborepo
 - Docker
 - Digital Ocean
