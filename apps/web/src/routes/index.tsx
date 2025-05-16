@@ -5,7 +5,6 @@ import NavBarLayout from './layouts/NavBarLayout';
 import NotFound from './pages/404';
 import File from './pages/File';
 import Home from './pages/Home';
-import UploadFile from './pages/UploadFile';
 
 const AppRoutes = () => {
   return (
@@ -16,12 +15,8 @@ const AppRoutes = () => {
           element={<Home />}
         />
         <Route
-          path="file/:id"
+          path="files/:id"
           element={<File />}
-        />
-        <Route
-          path="upload-file"
-          element={<UploadFile />}
         />
       </Route>
       <Route
