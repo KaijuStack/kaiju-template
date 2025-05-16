@@ -3,6 +3,7 @@ import { GetFilesDto } from '@repo/schemas';
 
 import apiService from 'services/api.service';
 import queryClient, { QueryKeys } from 'query-client';
+import { handleError } from 'utils';
 
 export function useGet(fileId?: string | null, options = {}) {
   const req = async () => {
@@ -55,7 +56,8 @@ export function useCreate() {
     });
 
     if (!response.ok) {
-      throw new Error('Failed to upload file');
+      const res = await response.text();
+      handleError({ e: new Error(res) });
     }
 
     return response.json();
@@ -63,5 +65,8 @@ export function useCreate() {
 
   return useMutation({
     mutationFn: req,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: [QueryKeys.Files] });
+    },
   });
 }

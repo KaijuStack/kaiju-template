@@ -27,6 +27,8 @@ export function Table({
 }: TableProps) {
   const message = `Showing ${perPage * (page - 1) + 1} – ${Math.min(count, perPage * page)} of ${count}`;
 
+  const totalPages = Math.ceil(count / perPage);
+
   return (
     <Stack align="flex-end">
       <Group
@@ -41,7 +43,7 @@ export function Table({
             {count > perPage && (
               <Pagination
                 withPages={false}
-                total={count}
+                total={totalPages}
                 value={page}
                 onChange={onPageChange}
               />

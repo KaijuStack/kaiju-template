@@ -16,8 +16,6 @@ const Navbar = () => {
   const fileDialog = useFileDialog({
     multiple: false,
     onChange: (files) => {
-      console.log(files);
-
       const file = files?.[0];
 
       if (!file) return;
