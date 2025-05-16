@@ -75,11 +75,7 @@ Install the next tools before starting:
 
 `pnpm migrate`. Run migrations.
 
-`pnpm dev`. Run the application.
-
-Application will be accesible on [http://localhost:5173/](http://localhost:5173/)
-
-TBD
+`pnpm dev`. Run the application. It will be accesible on [http://localhost:5173/](http://localhost:5173/)
 
 ## Documentation
 
