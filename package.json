@@ -2,7 +2,9 @@
   "name": "kaigen-template",
   "private": true,
   "scripts": {
-    "dev": "turbo dev",
+    "build": "turbo run build --filter=./packages/* --filter=@repo/api",
+    "watch": "turbo watch build --filter=./packages/* --filter=@repo/api",
+    "dev": "pnpm build && (turbo dev & pnpm watch)",
     "infra": "docker compose  -f infra/docker-compose.yml up --build",
     "prepare": "husky",
     "precommit": "turbo run precommit --concurrency=1"

@@ -1,38 +1,33 @@
 {
-  "name": "@repo/api",
-  "private": true,
+  "name": "@repo/schemas",
   "version": "0.0.0",
   "type": "module",
   "sideEffects": false,
+  "private": true,
+  "types": "./dist/index.d.ts",
   "exports": {
-    "./hc": {
-      "import": {
-        "default": "./dist/hc.js",
-        "types": "./dist/hc.d.ts"
-      }
-    }
+    ".": "./dist/index.js"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "tsc",
-    "dev": "tsx watch src/index.ts",
+    "build": "tsup && tsc --emitDeclarationOnly",
     "precommit": "lint-staged",
     "lint": "eslint --fix && tsc --noEmit && prettier . --ignore-path ../../.gitignore --write --log-level silent"
   },
   "dependencies": {
-    "@hono/node-server": "1.14.1",
-    "@hono/zod-validator": "0.5.0",
-    "hono": "4.7.9"
+    "tsup": "8.3.5",
+    "zod": "3.24.4"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
-    "@repo/schemas": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "lint-staged": "15.2.7",
-    "tsx": "4.19.4",
     "typescript": "5.8.3"
   },
   "lint-staged": {
-    "*.ts": [
+    "*.{ts,tsx}": [
       "eslint --fix",
       "bash -c 'tsc --noEmit'",
       "prettier . --ignore-path ../../.gitignore --write --log-level silent"
