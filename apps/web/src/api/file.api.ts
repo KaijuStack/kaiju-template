@@ -1,5 +1,5 @@
 import { useQuery, useMutation } from '@tanstack/react-query';
-import { CreateFileDto, GetFilesDto } from '@repo/schemas';
+import { GetFilesDto } from '@repo/schemas';
 
 import apiService from 'services/api.service';
 import queryClient, { QueryKeys } from 'query-client';
@@ -45,10 +45,21 @@ export function useList(params: GetFilesDto) {
 }
 
 export function useCreate() {
-  const req = (data: CreateFileDto) =>
-    apiService.api.files.$post({
-      json: data,
+  const req = async ({ name, file }: { name: string; file: File }) => {
+    const response = await apiService.api.files.$post({
+      form: {
+        file: new File([file], name, {
+          type: file.type,
+        }),
+      },
     });
+
+    if (!response.ok) {
+      throw new Error('Failed to upload file');
+    }
+
+    return response.json();
+  };
 
   return useMutation({
     mutationFn: req,

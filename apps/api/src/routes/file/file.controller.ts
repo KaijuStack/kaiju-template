@@ -12,12 +12,16 @@ const app = new Hono()
 
     return c.json(files);
   })
-  .post('/', zValidator('json', createFileSchema), async (c) => {
-    const file = await fileService.createFile({
-      data: c.req.valid('json'),
+  .post('/', zValidator('form', createFileSchema), async (c) => {
+    const { file } = c.req.valid('form');
+
+    const fileData = await fileService.createFile({
+      data: {
+        file,
+      },
     });
 
-    return c.json(file, 201);
+    return c.json(fileData, 201);
   })
   .get('/:id', async (c) => {
     const file = await fileService.getFile({

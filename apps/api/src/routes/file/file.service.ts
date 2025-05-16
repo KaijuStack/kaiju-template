@@ -6,16 +6,9 @@ import { db } from 'services';
 import { formatPagination } from 'utils';
 
 const createFile = async ({ data }: { data: CreateFileDto }) => {
-  const [existingFile] = await db
-    .select()
-    .from(fileBase)
-    .where(eq(fileBase.name, data.name));
-
-  if (existingFile) {
-    throw new Error('File name already exists');
-  }
-
-  return db.insert(fileBase).values(data);
+  return db.insert(fileBase).values({
+    name: data.file.name,
+  });
 };
 
 const getFile = async ({ id }: { id: string }) => {

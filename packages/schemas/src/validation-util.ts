@@ -23,14 +23,10 @@ const string = <T extends StringOptions>(
     isNullable = false,
   }: T = {} as T,
 ): StringReturn<T> => {
-  const minError = JSON.stringify({ key: 'too_short', min });
-  const maxError = JSON.stringify({ key: 'too_long', max });
-  const invalidSymbol = JSON.stringify({ key: 'invalid_symbol' });
-
-  let schema = z.string().trim().min(min, minError).max(max, maxError);
+  let schema = z.string().trim().min(min).max(max);
 
   if (allowedPatternRegex) {
-    schema = schema.regex(allowedPatternRegex, invalidSymbol);
+    schema = schema.regex(allowedPatternRegex);
   }
 
   if (isRequired) {

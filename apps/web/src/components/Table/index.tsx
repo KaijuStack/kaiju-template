@@ -38,12 +38,14 @@ export function Table({
         {count > 0 && (
           <Group justify="flex-end">
             <Text size="sm">{message}</Text>
-            <Pagination
-              withPages={false}
-              total={count}
-              value={page}
-              onChange={onPageChange}
-            />
+            {count > perPage && (
+              <Pagination
+                withPages={false}
+                total={count}
+                value={page}
+                onChange={onPageChange}
+              />
+            )}
           </Group>
         )}
       </Group>

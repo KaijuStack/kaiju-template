@@ -3,13 +3,31 @@ import { Box, Button, Group, Stack, Text } from '@mantine/core';
 import { useFileDialog } from '@mantine/hooks';
 import { Outlet } from 'react-router';
 
+import { filesApi } from 'api';
+
 import NavBarButton from './NavBarButton';
 import classes from './styles.module.css';
 
 const links = [{ link: '/', label: 'Home', icon: IconHome }];
 
 const Navbar = () => {
-  const fileDialog = useFileDialog();
+  const { mutate: createFile } = filesApi.useCreate();
+
+  const fileDialog = useFileDialog({
+    multiple: false,
+    onChange: (files) => {
+      console.log(files);
+
+      const file = files?.[0];
+
+      if (!file) return;
+
+      createFile({
+        name: file.name,
+        file: file,
+      });
+    },
+  });
 
   return (
     <Group className={classes.container}>

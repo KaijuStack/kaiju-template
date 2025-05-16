@@ -3,7 +3,7 @@ import { z } from 'zod';
 import validationField from '../validation-util';
 
 export const createFileSchema = z.object({
-  name: validationField.string({ isRequired: true, max: 20 }),
+  file: z.instanceof(File),
 });
 
 export type CreateFileDto = z.infer<typeof createFileSchema>;

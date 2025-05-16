@@ -2,9 +2,16 @@
   "extends": "@repo/typescript-config/base.json",
   "compilerOptions": {
     "outDir": "./dist",
-    "rootDir": ".",
-    "baseUrl": "src"
+    "rootDir": "./src",
+    "declaration": true,
+    "baseUrl": ".",
+    "paths": {
+      "db": ["src/db"],
+      "services": ["src/services"],
+      "utils": ["src/utils"],
+      "config": ["src/config"]
+    }
   },
-  "include": ["src/hc.ts"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
 }
